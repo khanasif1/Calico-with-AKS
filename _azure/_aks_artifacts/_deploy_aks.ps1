@@ -24,7 +24,7 @@ $SP=$(az ad sp create-for-rbac --output json)
   "appId": "dcbef188-b819-4235-9dfe-9ef99028f13c",
   "displayName": "azure-cli-2021-08-05-03-24-08",
   "name": "http://azure-cli-2021-08-05-03-24-08",
-  "password": "o1LquzFxhHdneXP2kDrcNDo8V_ygE2OmM7",
+  "password": "***************",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
 }
 #>
