@@ -3,10 +3,12 @@ kubectl config set-context --current --namespace=app
 kubectl get ns
 kubectl get nodes
 kubectl get ns
+#kubectl delete deployment product-2 --namespace app2
 
-kubectl get deployment
+kubectl get deployment  -A
 kubectl get pod -o wide -A
-kubectl describe pod nginx-6998bbffd7-ks6dz
+kubectl describe pod product-2-5cf5658cf6-j6nkl --namespace app2
+kubectl describe deployment   product-2 --namespace app2
 
 kubectl get NetworkPolicy -A -o wide
 kubectl describe NetworkPolicy allow-nginx-product
@@ -15,7 +17,7 @@ kubectl describe NetworkPolicy blockallpolicy
 #kubectl delete networkpolicy blockallpolicy --namespace app
 #kubectl delete networkpolicy  allow-nginx-product --namespace app
 
-kubectl create namespace policy
+kubectl create namespace app2
 
 #kubectl run nginxtest --image=nginx 
 kubectl describe pod  web-5d56b796f-sgkr7

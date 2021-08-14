@@ -1,0 +1,15 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-nginx-product2
+  namespace: app
+spec:
+  podSelector:
+    matchLabels:
+      app: product
+  ingress:
+  - action: Allow
+    protocol: TCP
+    source:
+      selector: color == 'blue'
+      namespaceSelector: shape == 'circle'
