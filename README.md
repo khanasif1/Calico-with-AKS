@@ -11,26 +11,7 @@ Whether you opt to use Calico's eBPF data plane or Linux’s standard networking
 In this solution, I have tried to cover end-to-end steps for experiencing Calico. This solution will be exceptionally relevent to users who have urgent need to demo/quick experience/present Calico implementation with AKS.
 
 The solution has below folder structure:
-
-📦_azure
- ┣ 📂_aks_artifacts
- ┃ ┣ 📂kubectl
- ┃ ┃ ┣ 📜clusterquery.ps1
- ┃ ┃ ┗ 📜deploycomponents.ps1
- ┃ ┣ 📂manage
- ┃ ┃ ┗ 📜aksclustermamagement.ps1
- ┃ ┣ 📂yaml
- ┃ ┃ ┣ 📂application
- ┃ ┃ ┃ ┣ 📜nginx.yaml
- ┃ ┃ ┃ ┣ 📜product.yaml
- ┃ ┃ ┃ ┣ 📜product2.yaml
- ┃ ┃ ┃ ┗ 📜web.yaml
- ┃ ┃ ┗ 📂policy
- ┃ ┃ ┃ ┣ 📜allow_cross_ns_pod.yaml
- ┃ ┃ ┃ ┣ 📜allow_nginx_product.yaml
- ┃ ┃ ┃ ┗ 📜blockall_productpolicy.yaml
- ┃ ┗ 📜_deploy_aks.ps1
- ┗ 📜_login.ps1
+<figure class="wp-block-image size-large is-resized"><img src="https://github.com/khanasif1/Calico-with-AKS/blob/main/images/folder.JPG" alt="" class="wp-image-4784" width="753" height="250"/></figure>
 
 
 
