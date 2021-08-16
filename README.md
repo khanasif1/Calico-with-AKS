@@ -13,6 +13,8 @@ In this solution, I have tried to cover end-to-end steps for experiencing Calico
 The solution has below folder structure:
 <figure class="wp-block-image size-large is-resized"><img src="https://github.com/khanasif1/Calico-with-AKS/blob/main/images/folder.JPG" alt="" class="wp-image-4784" width="330" height="386"/></figure>
 
+***
+
 <h2>Deploy the solution</h2>
 
 <ul>
@@ -23,7 +25,9 @@ The solution has below folder structure:
                 <li><strong>clusterquery.ps1</strong>: These are random query for K8s cluster. You may igonore this.</li>
             </ol>
 </li>
-<li><strong>manage</strong></li>
+<li><strong>manage
+    <ol><li><strong>aksclustermamagement.ps1</strong>: You can turn on/off your AKS cluster to reduce cost.</li></ol>
+</strong></li>
 <li><strong>yaml-->application</strong></li>
 <li><strong>yaml-->policy</strong></li>
 <li><strong>_cluster_management</strong></li>
