@@ -16,7 +16,13 @@ The solution has below folder structure:
 <h2>Deploy the solution</h2>
 
 <ul>
-<li><strong>kubectl</strong></li>
+<li><strong>_deploy_aks.ps1</strong> : Deploy a AKS cluster, with network policy as Calico. </li>
+<li><strong>kubectl</strong>
+            <ol>
+                <li><strong>deploycomponents.ps1</strong>: Deploy application components</li>
+                <li><strong>clusterquery.ps1</strong>: These are random query for K8s cluster. You may igonore this.</li>
+            </ol>
+</li>
 <li><strong>manage</strong></li>
 <li><strong>yaml-->application</strong></li>
 <li><strong>yaml-->policy</strong></li>

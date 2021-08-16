@@ -19,15 +19,7 @@ az network vnet create `
 
 # Create a service principal and read in the application ID
 $SP=$(az ad sp create-for-rbac --output json)
-<#
-{
-  "appId": "dcbef188-b819-4235-9dfe-9ef99028f13c",
-  "displayName": "azure-cli-2021-08-05-03-24-08",
-  "name": "http://azure-cli-2021-08-05-03-24-08",
-  "password": "***************",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
-#>
+
 $SP_ID = ($SP | ConvertFrom-Json).appId
 $SP_PASSWORD = ($SP | ConvertFrom-Json).password
 
@@ -42,24 +34,6 @@ $VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP_NAME --name $VN
 
 # Assign the service principal Contributor permissions to the virtual network resource
 az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
-
-<#
-{
-  "canDelegate": null,
-  "condition": null,
-  "conditionVersion": null,
-  "description": null,
-  "id": "/subscriptions/9907fc36-386a-48e6-9b00-0470d5f7cab7/resourceGroups/rgcalico/providers/Microsoft.Network/virtualNetworks/calicoVnet/providers/Microsoft.Authorization/roleAssignments/c74ad3b3-14f5-433d-8244-a13e483feb2e",
-  "name": "c74ad3b3-14f5-433d-8244-a13e483feb2e",
-  "principalId": "d6c02f24-30e8-4dd8-96ba-7c45e95788d9",
-  "principalType": "ServicePrincipal",
-  "resourceGroup": "rgcalico",
-  "roleDefinitionId": "/subscriptions/9907fc36-386a-48e6-9b00-0470d5f7cab7/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
-  "scope": "/subscriptions/9907fc36-386a-48e6-9b00-0470d5f7cab7/resourceGroups/rgcalico/providers/Microsoft.Network/virtualNetworks/calicoVnet",
-  "type": "Microsoft.Authorization/roleAssignments"
-}
-#>
-
 
 # Get the virtual network subnet resource ID
 $SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name $VNET --name $SUBNET --query id -o tsv)
