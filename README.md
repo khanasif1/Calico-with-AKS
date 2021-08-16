@@ -12,3 +12,13 @@ In this solution, I have tried to cover end-to-end steps for experiencing Calico
 
 The solution has below folder structure:
 <figure class="wp-block-image size-large is-resized"><img src="https://github.com/khanasif1/Calico-with-AKS/blob/main/images/folder.JPG" alt="" class="wp-image-4784" width="330" height="386"/></figure>
+
+<h2>Deploy the solution</h2>
+
+<ul>
+<li><strong>kubectl</strong></li>
+<li><strong>manage</strong></li>
+<li><strong>yaml-->application</strong></li>
+<li><strong>yaml-->policy</strong></li>
+<li><strong>_cluster_management</strong></li>
+</ul>
