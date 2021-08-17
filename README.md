@@ -30,5 +30,4 @@ The solution has below folder structure:
 </strong></li>
 <li><strong>yaml-->application</strong></li>
 <li><strong>yaml-->policy</strong></li>
-<li><strong>_cluster_management</strong></li>
 </ul>
