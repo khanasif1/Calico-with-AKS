@@ -28,9 +28,9 @@ kubectl describe NetworkPolicy allow-metrics-prom --namespace app
 
 #kubectl delete networkpolicy blockallpolicy --namespace app
 #kubectl delete networkpolicy  allow-nginx-product --namespace app
-#kubectl delete networkpolicy  allow-nginx-product2 --namespace ap
+#kubectl delete networkpolicy  allow-frontend-backend-noside --namespace ap
 
-ku
+
 
 #kubectl run nginxtest --image=nginx 
 kubectl describe pod  nginx-6998bbffd7-xb9tn
