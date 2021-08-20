@@ -10,6 +10,8 @@ kubectl create namespace app2
 kubectl label namespace app2 location=nsapp2
 <#Deploy NGINX#>
 kubectl apply -f _azure/_aks_artifacts/namespace_policy/yaml/application/frontend.yaml
+kubectl apply -f _azure/_aks_artifacts/namespace_policy/yaml/application/frontend_side.yaml
+
 kubectl apply -f _azure/_aks_artifacts/namespace_policy/yaml/application/backend.yaml
 
 <#Deploy Policy#>

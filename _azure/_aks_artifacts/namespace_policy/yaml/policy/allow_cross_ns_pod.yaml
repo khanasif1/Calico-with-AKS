@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-frontend-backend
+  name: allow-frontend-backend-noside
   namespace: ap
 spec:
   podSelector:

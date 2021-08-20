@@ -7,7 +7,7 @@ kubectl get ns -A
 #kubectl delete ns app2
 
 kubectl get deployment  -A
-#kubectl delete deployment nginx --namespace app
+#kubectl delete deployment frontend-side --namespace ap
 #kubectl delete deployment nginx-2 --namespace app2
 #kubectl delete deployment web --namespace app
 #kubectl delete deployment product --namespace app
@@ -42,19 +42,23 @@ curl -i -X GET http://www.google.com
 
 nginx-6998bbffd7-ks6dz  product-5456646588-99hvf   web-785d549876-9v2qd
 
-kubectl exec -it frontend-57b4b965dc-99wr2 --namespace ap -- /bin/sh     #access pod frontend
-kubectl exec -it backend-84f6f78f7f-cdhbx --namespace app2 -- /bin/sh    #access pod backend
+kubectl exec -it frontend-57b4b965dc-99wr2 --namespace ap -- /bin/sh        #access pod frontend
+kubectl exec -it frontend-side-678c496875-2sm8p --namespace ap -- /bin/sh   #access pod frontend-side
+kubectl exec -it backend-84f6f78f7f-cdhbx --namespace app2 -- /bin/sh       #access pod backend
 
 
 apt-get  update
 apt-get install wget
 
 curl -i -X GET http://10.240.0.15                              #pod frontend 
+curl -i -X GET http://10.240.0.27                              #pod frontend-side 
 curl -i -X GET http://10.0.38.123                                #svc frontend
+curl -i -X GET http://10.0.88.188                                #svc frontend-side
 
 curl -i -X GET http://10.240.0.26                               #pod backend
 curl -i -X GET http://10.0.55.249                              #svc backend
 
 
 curl -i -X GET http://frontend.ap
+curl -i -X GET http://frontend-side.ap
 curl -i -X GET http://backend.app2

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-side
+  namespace: ap
+  labels:
+    ns: ap
+    app: frontend-side
+spec:
+  selector:
+      matchLabels:
+        app: frontendpod-side
+  replicas: 1
+  template:
+      metadata:
+        labels:
+            app: frontendpod-side
+            group: application
+      spec:
+        containers:
+        - name: frontendpod-side
+          image:  nginx
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-side
+  namespace: ap
+spec:
+  selector:
+    app: frontendpod-side
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP           
