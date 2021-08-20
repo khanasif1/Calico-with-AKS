@@ -16,6 +16,3 @@ kubectl apply -f _azure/_aks_artifacts/calico/namespaceRule/application/backend.
 
 <#Deploy Policy#>
 kubectl apply -f _azure/_aks_artifacts/calico/namespaceRule/policy/blockall_productpolicy.yaml
-kubectl apply -f _azure/_aks_artifacts/calico/namespaceRule/policy/allow_nginx_product.yaml
-kubectl apply -f _azure/_aks_artifacts/calico/namespaceRule/policy/allow_cross_ns_pod.yaml
-
