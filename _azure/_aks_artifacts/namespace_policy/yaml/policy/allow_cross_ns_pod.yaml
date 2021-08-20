@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-frontend-backend
+  namespace: ap
+spec:
+  podSelector:
+    matchLabels:
+      app: frontendpod
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          location : nsapp2
+      podSelector:
+        matchLabels:
+          app: backendpod
+          group: application
+     

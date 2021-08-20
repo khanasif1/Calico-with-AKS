@@ -4,9 +4,7 @@ kubectl get ns
 kubectl get nodes
 kubectl get ns -A
 
-#kubectl delete deployment product-2 --namespace app2
-#kubectl delete service backend --namespace app
-#kubectl delete ns app
+#kubectl delete ns app2
 
 kubectl get deployment  -A
 #kubectl delete deployment nginx --namespace app
@@ -30,7 +28,7 @@ kubectl describe NetworkPolicy allow-metrics-prom --namespace app
 
 #kubectl delete networkpolicy blockallpolicy --namespace app
 #kubectl delete networkpolicy  allow-nginx-product --namespace app
-#kubectl delete networkpolicy  allow-nginx-product2 --namespace app
+#kubectl delete networkpolicy  allow-nginx-product2 --namespace ap
 
 ku
 
@@ -44,24 +42,18 @@ curl -i -X GET http://www.google.com
 
 nginx-6998bbffd7-ks6dz  product-5456646588-99hvf   web-785d549876-9v2qd
 
-kubectl exec -it nginx-6998bbffd7-mgbpg --namespace ap -- /bin/sh
-kubectl exec -it nginx-2-549dbdf9d9-lphjt --namespace app2 -- /bin/sh
+kubectl exec -it frontend-57b4b965dc-99wr2 --namespace ap -- /bin/sh     #access pod frontend
+kubectl exec -it backend-84f6f78f7f-cdhbx --namespace app2 -- /bin/sh    #access pod backend
 
 
 apt-get  update
 apt-get install wget
 
-wget -qO- --timeout=1  http://10.240.0.11                           #web
+curl -i -X GET http://10.240.0.15                              #pod frontend 
+curl -i -X GET http://10.0.38.123                                #svc frontend
 
-wget -qO- --timeout=1 http://10.240.0.6/api/product/GetMetadata     #product
-wget -qO- --timeout=1 http://10.240.0.6/swagger/index.html          #product
-wget -qO- --timeout=1 http://10.240.0.6.app/swagger/index.html      #product
-
-wget -qO- --timeout=1 http://10.240.0.9/swagger/index.html          # product2
-wget -qO- --timeout=1 http://10.240.0.9.app2/swagger/index.html     # product2
-
-curl -i -X GET http://10.0.239.9.app                                  #nginx 
-curl -i -X GET http://10.0.55.142.app2                                 #nginx2
+curl -i -X GET http://10.240.0.26                               #pod backend
+curl -i -X GET http://10.0.55.249                              #svc backend
 
 
 curl -i -X GET http://frontend.ap
