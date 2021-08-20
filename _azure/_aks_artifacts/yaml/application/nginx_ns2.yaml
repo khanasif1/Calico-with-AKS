@@ -1,37 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
-  namespace: ap
+  name: nginx-2
+  namespace: app2
   labels:
-    ns: ap
-    app: nginx
+    ns: app2
+    app: nginx2  
 spec:
   selector:
       matchLabels:
-        app: nginxpod
+        app: nginxpod_2
   replicas: 1
   template:
       metadata:
         labels:
-            app: nginxpod
+            app: nginxpod_2
             group: application
       spec:
         containers:
-        - name: nginxpod
+        - name: nginxpod-2
           image:  nginx
           imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
-  namespace: ap
+  name: backend
+  namespace: app2
 spec:
   selector:
-    app: nginxpod
+    app: nginxpod_2
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: ClusterIP           
+  type: ClusterIP                   

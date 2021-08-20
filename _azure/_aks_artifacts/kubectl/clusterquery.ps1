@@ -60,8 +60,8 @@ wget -qO- --timeout=1 http://10.240.0.6.app/swagger/index.html      #product
 wget -qO- --timeout=1 http://10.240.0.9/swagger/index.html          # product2
 wget -qO- --timeout=1 http://10.240.0.9.app2/swagger/index.html     # product2
 
-curl -i -X GET http://10.240.0.22.app                                  #nginx 
-curl -i -X GET http://10.240.0.23.app2                                 #nginx2
+curl -i -X GET http://10.0.239.9.app                                  #nginx 
+curl -i -X GET http://10.0.55.142.app2                                 #nginx2
 
 
 curl -i -X GET http://frontend.ap
