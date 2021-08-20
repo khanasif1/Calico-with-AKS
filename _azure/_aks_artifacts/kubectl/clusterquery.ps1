@@ -47,8 +47,6 @@ kubectl exec -it frontend-side-678c496875-2sm8p --namespace ap -- /bin/sh   #acc
 kubectl exec -it backend-84f6f78f7f-cdhbx --namespace app2 -- /bin/sh       #access pod backend
 
 
-apt-get  update
-apt-get install wget
 
 curl -i -X GET http://10.240.0.15                              #pod frontend 
 curl -i -X GET http://10.240.0.27                              #pod frontend-side 

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: app2
+  labels:
+    ns: app2
+    app: backend  
+spec:
+  selector:
+      matchLabels:
+        app: backendpod
+  replicas: 1
+  template:
+      metadata:
+        labels:
+            app: backendpod
+            group: application
+      spec:
+        containers:
+        - name: backendpod
+          image:  nginx
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: app2
+spec:
+  selector:
+    app: backendpod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP                   
