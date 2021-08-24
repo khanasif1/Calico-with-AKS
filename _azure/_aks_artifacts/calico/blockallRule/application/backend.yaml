@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: blockbackend
   namespace: blockapp2
   labels:
     ns: app2
@@ -15,7 +15,7 @@ spec:
       metadata:
         labels:
             app: backendpod
-            group: application
+            group: blockapplication
       spec:
         containers:
         - name: backendpod
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
+  name: blockbackend
   namespace: blockapp2
 spec:
   selector:

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: blockfrontend
   namespace: blockap
   labels:
     ns: ap
@@ -15,7 +15,7 @@ spec:
       metadata:
         labels:
             app: frontendpod
-            group: application
+            group: blockapplication
       spec:
         containers:
         - name: frontendpod
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
+  name: blockfrontend
   namespace: blockap
 spec:
   selector:
